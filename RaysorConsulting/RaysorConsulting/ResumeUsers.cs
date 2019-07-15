@@ -5,9 +5,9 @@ namespace RaysorConsulting
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class ResumeUsers : DbContext
+    public partial class ResumeModel : DbContext
     {
-        public ResumeUsers()
+        public ResumeModel()
             : base("name=ResumeUsers")
         {
         }

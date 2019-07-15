@@ -14,7 +14,7 @@ namespace RaysorConsulting
 
         public Guid UserID { get; set; }
 
-        [Column("Email")]
+        [Column("EmailAddress")]
         [Required]
         public string Email1 { get; set; }
 

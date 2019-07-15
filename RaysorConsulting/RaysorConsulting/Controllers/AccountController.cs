@@ -1,4 +1,5 @@
 ﻿using System;
+using System.EnterpriseServices;
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
@@ -9,6 +10,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using RaysorConsulting.Models;
+ 
 
 namespace RaysorConsulting.Controllers
 {
@@ -155,6 +157,8 @@ namespace RaysorConsulting.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    if (updateNewUser(model) == true)
+                    { 
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
@@ -163,7 +167,8 @@ namespace RaysorConsulting.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Login", "Login");
+                }
                 }
                 AddErrors(result);
             }
@@ -171,6 +176,53 @@ namespace RaysorConsulting.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+        private bool updateNewUser(RegisterViewModel model)
+        {
+            bool validUser = false;
+
+            try
+            {
+                using (var context = new ResumeModel())
+                {
+                    var chkUser = context.Emails.Where(s => s.Email1 == model.Email).FirstOrDefault();
+                    if (chkUser == null)
+                    {
+                        User newuser = new User();
+                        Email newUserEmail = new Email();
+                        var keynew = Helper.GeneratePassword(10);
+                        var password = Helper.EncodePassword(model.Password, keynew);
+                        newuser.RoleID = 2;
+                        newuser.SaltHash = keynew;
+                        newuser.DateCreated = DateTime.Today;
+                        newuser.UserHash = password;
+                        newuser.DatePasswordChanged = DateTime.Today;
+                        newuser.Active = true;
+
+                        context.Users.Add(newuser);
+                        context.SaveChanges();
+                        context.Entry(newuser).GetDatabaseValues();
+                        Guid mykey = newuser.UserID;
+
+                        newUserEmail.Email1 = model.Email;
+                        newUserEmail.UserID = mykey;
+                        context.Emails.Add(newUserEmail);
+                        context.SaveChanges();
+
+                        ModelState.Clear();
+                        validUser = true;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                ViewBag.ErrorMessage = "User already Exist";
+                validUser = false;
+            }
+            return validUser;
+        }
+
+
+
 
         //
         // GET: /Account/ConfirmEmail
