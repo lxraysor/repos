@@ -8,6 +8,8 @@ namespace RaysorConsulting
 
     public partial class User
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid UserID { get; set; }
 
         public int? UserType { get; set; }

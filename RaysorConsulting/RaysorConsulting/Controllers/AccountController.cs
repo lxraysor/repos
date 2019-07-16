@@ -205,11 +205,16 @@ namespace RaysorConsulting.Controllers
 
                         newUserEmail.Email1 = model.Email;
                         newUserEmail.UserID = mykey;
-                        context.Emails.Add(newUserEmail);
+                        newUserEmail.DateEmailSent = DateTime.Now;
+                        context.Emails.Attach(newUserEmail);
                         context.SaveChanges();
 
                         ModelState.Clear();
                         validUser = true;
+
+                        
+
+
                     }
                 }
             }

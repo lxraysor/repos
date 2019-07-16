@@ -206,16 +206,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recruiter.cs" />
     <Compile Include="Resume.cs" />
-    <Compile Include="ResumeModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ResumeModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ResumeModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ResumeModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="ResumeOwner.cs" />
     <Compile Include="ResumeType.cs" />
     <Compile Include="ResumeUsers.cs" />
@@ -377,14 +367,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Content\img\CompanyLogo\style.css.map" />
     <Content Include="libman.json" />
-    <Content Include="ResumeModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ResumeModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ResumeModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ResumeModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />

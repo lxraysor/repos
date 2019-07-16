@@ -114,6 +114,7 @@ namespace RaysorConsulting
             modelBuilder.Entity<UserAnswer>()
                 .Property(e => e.Answer)
                 .IsUnicode(false);
+
         }
     }
 }
