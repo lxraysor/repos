@@ -507,6 +507,7 @@
     <Content Include="Scripts\vendors\linericon\fonts\Linearicons-Free.ttf" />
     <Content Include="Scripts\vendors\linericon\fonts\Linearicons-Free.woff" />
     <Content Include="Scripts\vendors\linericon\fonts\Linearicons-Free.woff2" />
+    <Content Include="Views\Home\Welcome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

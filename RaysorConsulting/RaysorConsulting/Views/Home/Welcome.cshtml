@@ -1,0 +1,133 @@
+﻿
+@{
+    ViewBag.Title = "Welcome";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Welcome</h2>
+
+<form class="form-horizontal">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>Questionnaire:</legend>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="sample">Job Title</label>
+            <div class="col-md-4">
+                <input id="sample" name="sample" type="text" placeholder="Whats the job Title" class="form-control input-md">
+                <span class="help-block">help</span>
+            </div>
+        </div>
+
+        <!-- Textarea -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="JobDescription">Job Description</label>
+            <div class="col-md-4">
+                <textarea class="form-control" id="JobDescription" name="JobDescription">What would I be doing!</textarea>
+            </div>
+        </div>
+
+        <!-- Multiple Radios (inline) -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="RadioClearance">Clearance Level Required</label>
+            <div class="col-md-4">
+                <label class="radio-inline" for="RadioClearance-0">
+                    <input type="radio" name="RadioClearance" id="RadioClearance-0" value="1" checked="checked">
+                    None
+                </label>
+                <label class="radio-inline" for="RadioClearance-1">
+                    <input type="radio" name="RadioClearance" id="RadioClearance-1" value="2">
+                    Confidential
+                </label>
+                <label class="radio-inline" for="RadioClearance-2">
+                    <input type="radio" name="RadioClearance" id="RadioClearance-2" value="3">
+                    Secret
+                </label>
+                <label class="radio-inline" for="RadioClearance-3">
+                    <input type="radio" name="RadioClearance" id="RadioClearance-3" value="4">
+                    Top Secret
+                </label>
+                <label class="radio-inline" for="RadioClearance-4">
+                    <input type="radio" name="RadioClearance" id="RadioClearance-4" value="">
+                    Top Secret(SCI)
+                </label>
+                <label class="radio-inline" for="RadioClearance-5">
+                    <input type="radio" name="RadioClearance" id="RadioClearance-5" value="">
+                    Top Secret Poly
+                </label>
+                <label class="radio-inline" for="RadioClearance-6">
+                    <input type="radio" name="RadioClearance" id="RadioClearance-6" value="">
+                    Other
+                </label>
+            </div>
+        </div>
+
+        <!-- Multiple Radios -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="remote">Remote Work</label>
+            <div class="col-md-4">
+                <div class="radio">
+                    <label for="remote-0">
+                        <input type="radio" name="remote" id="remote-0" value="1" checked="checked">
+                        Yes
+                    </label>
+                </div>
+                <div class="radio">
+                    <label for="remote-1">
+                        <input type="radio" name="remote" id="remote-1" value="2">
+                        No
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Multiple Radios (inline) -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="TypeofWork">Type of Contract</label>
+            <div class="col-md-4">
+                <label class="radio-inline" for="TypeofWork-0">
+                    <input type="radio" name="TypeofWork" id="TypeofWork-0" value="1" checked="checked">
+                    W2
+                </label>
+                <label class="radio-inline" for="TypeofWork-1">
+                    <input type="radio" name="TypeofWork" id="TypeofWork-1" value="2">
+                    1099
+                </label>
+                <label class="radio-inline" for="TypeofWork-2">
+                    <input type="radio" name="TypeofWork" id="TypeofWork-2" value="3">
+                    Corp to Corp
+                </label>
+                <label class="radio-inline" for="TypeofWork-3">
+                    <input type="radio" name="TypeofWork" id="TypeofWork-3" value="4">
+                    4
+                </label>
+            </div>
+        </div>
+
+        <!-- Multiple Radios (inline) -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="Location">Job Location</label>
+            <div class="col-md-4">
+                <label class="radio-inline" for="Location-0">
+                    <input type="radio" name="Location" id="Location-0" value="1" checked="checked">
+                    Maryland
+                </label>
+                <label class="radio-inline" for="Location-1">
+                    <input type="radio" name="Location" id="Location-1" value="2">
+                    Washington DC
+                </label>
+                <label class="radio-inline" for="Location-2">
+                    <input type="radio" name="Location" id="Location-2" value="3">
+                    Virginia
+                </label>
+                <label class="radio-inline" for="Location-3">
+                    <input type="radio" name="Location" id="Location-3" value="4">
+                    Other
+                </label>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
